@@ -1,0 +1,20 @@
+[package]
+name = "RustTest"
+version = "0.1.0"
+authors = ["Morgana <xly_tk@foxmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reqwest = { version = "0.10", features = ["json"] }
+tokio = { version = "0.2", features = ["full"] }
+rustc-serialize = "0.3.24"
+serde = { version = "1.0.114", features = ["derive"] }
+serde_json = "1.0.56"
+websocket = "0.26.2"
+
+[target.x86_64-unknown-linux-musl.dependencies]
+openssl = { version = "0.10", features = ["vendored"] }
+
+[profile.release]

@@ -7,6 +7,7 @@ pub enum SendParcel {
     SendMessage(SendMessage),
     SendKeyboard(Vec<u8>),
     GetGameStatus(u8),
+    SendGameStatus(SendGameStatus),
     Disconnect,
 }
 
@@ -42,5 +43,16 @@ pub struct SendMessage {
 impl SendMessage {
     pub fn new(message: String) -> Self {
         SendMessage { message }
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct SendGameStatus {
+    data: String,
+}
+
+impl SendGameStatus {
+    pub fn new(data: String) -> Self {
+        SendGameStatus { data }
     }
 }

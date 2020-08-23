@@ -10,6 +10,7 @@ pub struct Room {
     room_id: u16,
     pub player: RwLock<HashMap<Uuid, Player>>,
     output_sender: broadcast::Sender<SendWrap>,
+    pub wait_data_ids: RwLock<Vec<Uuid>>,
 }
 
 impl Room {
@@ -19,6 +20,7 @@ impl Room {
             room_id,
             player: Default::default(),
             output_sender,
+            wait_data_ids: Default::default(),
         }
     }
     pub fn room_id(&self) -> &u16 {

@@ -5,6 +5,7 @@ pub enum Controller {
     JoinRoom,
     QuitRoom,
     SendMessage,
+    GameStatus,
     NotFound,
 }
 
@@ -15,6 +16,7 @@ impl Controller {
             2 => Controller::JoinRoom,
             3 => Controller::QuitRoom,
             4 => Controller::SendMessage,
+            5 => Controller::GameStatus,
             _ => Controller::NotFound,
         }
     }
@@ -40,5 +42,6 @@ pub struct SendMessageJson {
 
 #[derive(Serialize, Deserialize)]
 pub struct GameStatusJson {
-
+    mid: u8,
+    pub json_data: String,
 }
